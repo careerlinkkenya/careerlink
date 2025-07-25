@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerLink | Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.13/20/solid.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+  <div class="max-w-3xl mx-auto mt-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg" data-aos="zoom-in">
+    <h2 class="text-2xl font-bold mb-4 text-center">Complete Your Payment</h2>
+    <p class="mb-6 text-center text-sm">To proceed with your application, kindly complete the payment.</p>
+
+    <div class="mb-6">
+      <h3 class="font-semibold mb-2">Choose Payment Type:</h3>
+      <div class="flex gap-4">
+        <label class="flex items-center gap-2">
+          <input type="radio" name="paymentType" value="direct" class="accent-green-600" checked>
+          <span>Direct Placement - <strong>KSh 950</strong></span>
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="paymentType" value="interview" class="accent-green-600">
+          <span>Interview Booking - <strong>KSh 350</strong></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="font-semibold mb-2">Pay To:</h3>
+      <div class="flex items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded">
+        <span id="payNumber" class="text-lg font-bold">0102960463</span>
+        <button onclick="copyNumber()" class="text-sm px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded">Copy</button>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <label class="block mb-2 font-semibold">Upload Payment Screenshot</label>
+      <input type="file" accept="image/*" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded">
+    </div>
+
+    <button onclick="confirmPayment()" class="w-full py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded">Confirm Payment</button>
+  </div>
+
+  <script>
+    AOS.init();
+
+    // Firebase Auth
+    const firebaseConfig = {
+      apiKey: "AIzaSyBnrOBOoAas9DD_FiGJYLLz1RUqT_Clkvg",
+      authDomain: "careerlink-ebeed.firebaseapp.com",
+      projectId: "careerlink-ebeed",
+      storageBucket: "careerlink-ebeed.appspot.com",
+      messagingSenderId: "311863050655",
+      appId: "1:311863050655:web:a12a4cd36014e5e577bdaa"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+
+    function copyNumber() {
+      const text = document.getElementById('payNumber').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Payment number copied!');
+      });
+    }
+
+    function confirmPayment() {
+      const selectedType = document.querySelector('input[name="paymentType"]:checked').value;
+      const redirectURL = `confirmation.html?type=${selectedType}`;
+      window.location.href = redirectURL;
+    }
+  </script>
+</body>
+</html>

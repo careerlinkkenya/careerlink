@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerLink | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/heroicons@1.0.6/dist/heroicons.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBnrOBOoAas9DD_FiGJYLLz1RUqT_Clkvg",
+      authDomain: "careerlink-ebeed.firebaseapp.com",
+      projectId: "careerlink-ebeed",
+      storageBucket: "careerlink-ebeed.appspot.com",
+      messagingSenderId: "311863050655",
+      appId: "1:311863050655:web:a12a4cd36014e5e577bdaa"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) window.location.href = 'login.html';
+    });
+
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        window.location.href = 'login.html';
+      });
+    }
+  </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white font-sans">
+  <!-- Header -->
+  <header class="bg-green-600 dark:bg-green-700 shadow-md p-4 flex justify-between items-center">
+    <a href="home.html" class="text-white text-xl font-bold">CareerLink</a>
+    <nav class="space-x-4">
+      <a href="jobs.html" class="text-white">Browse Jobs</a>
+      <a href="how-it-works.html" class="text-white">How it Works</a>
+      <a href="contact.html" class="text-white">Contact</a>
+      <a href="profile.html" class="text-white">Profile</a>
+      <button onclick="logout()" class="bg-white text-green-600 px-3 py-1 rounded">Logout</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-12 bg-gradient-to-r from-green-500 to-green-700 text-white">
+    <h1 class="text-4xl font-bold mb-4" data-aos="fade-up">Find Your Dream Job in Nairobi</h1>
+    <p class="text-lg mb-6" data-aos="fade-up" data-aos-delay="100">Quick, reliable, and affordable job placement services</p>
+    <a href="jobs.html" class="bg-white text-green-600 px-6 py-2 rounded-full font-semibold" data-aos="fade-up" data-aos-delay="200">Browse Jobs</a>
+  </section>
+
+  <!-- Featured Jobs -->
+  <section class="p-6 max-w-6xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-6">Featured Jobs</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Sample Job Card -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4" data-aos="zoom-in">
+        <h3 class="text-xl font-bold">Customer Support Officer</h3>
+        <p class="text-sm">Location: Nairobi</p>
+        <p class="text-sm">Salary: KSh 35,000</p>
+        <a href="application.html" class="mt-3 inline-block bg-green-600 text-white px-4 py-1 rounded">Apply</a>
+      </div>
+      <!-- Duplicate above and update details for 6 more -->
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4" data-aos="zoom-in">
+        <h3 class="text-xl font-bold">Sales Representative</h3>
+        <p class="text-sm">Location: Nairobi</p>
+        <p class="text-sm">Salary: KSh 30,000</p>
+        <a href="application.html" class="mt-3 inline-block bg-green-600 text-white px-4 py-1 rounded">Apply</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4" data-aos="zoom-in">
+        <h3 class="text-xl font-bold">Front Desk Officer</h3>
+        <p class="text-sm">Location: Nairobi</p>
+        <p class="text-sm">Salary: KSh 28,000</p>
+        <a href="application.html" class="mt-3 inline-block bg-green-600 text-white px-4 py-1 rounded">Apply</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4" data-aos="zoom-in">
+        <h3 class="text-xl font-bold">Office Assistant</h3>
+        <p class="text-sm">Location: Nairobi</p>
+        <p class="text-sm">Salary: KSh 25,000</p>
+        <a href="application.html" class="mt-3 inline-block bg-green-600 text-white px-4 py-1 rounded">Apply</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4" data-aos="zoom-in">
+        <h3 class="text-xl font-bold">Digital Marketer</h3>
+        <p class="text-sm">Location: Nairobi</p>
+        <p class="text-sm">Salary: KSh 42,000</p>
+        <a href="application.html" class="mt-3 inline-block bg-green-600 text-white px-4 py-1 rounded">Apply</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4" data-aos="zoom-in">
+        <h3 class="text-xl font-bold">IT Support Intern</h3>
+        <p class="text-sm">Location: Nairobi</p>
+        <p class="text-sm">Salary: KSh 20,000</p>
+        <a href="application.html" class="mt-3 inline-block bg-green-600 text-white px-4 py-1 rounded">Apply</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4" data-aos="zoom-in">
+        <h3 class="text-xl font-bold">Logistics Clerk</h3>
+        <p class="text-sm">Location: Nairobi</p>
+        <p class="text-sm">Salary: KSh 38,000</p>
+        <a href="application.html" class="mt-3 inline-block bg-green-600 text-white px-4 py-1 rounded">Apply</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <footer class="bg-gray-900 text-white p-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div>
+        <h4 class="font-bold mb-2">Quick Links</h4>
+        <ul>
+          <li><a href="faq.html" class="hover:underline">FAQs</a></li>
+          <li><a href="terms.html" class="hover:underline">Terms of Use</a></li>
+          <li><a href="privacy-policy.html" class="hover:underline">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Help</h4>
+        <ul>
+          <li><a href="chat.html" class="hover:underline">Chat Support</a></li>
+          <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">About</h4>
+        <ul>
+          <li><a href="how-it-works.html" class="hover:underline">How It Works</a></li>
+          <li><a href="profile.html" class="hover:underline">Your Profile</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Follow</h4>
+        <ul>
+          <li><a href="https://wa.me/254102960463" class="hover:underline">WhatsApp</a></li>
+          <li><a href="mailto:careerlinkke@gmail.com" class="hover:underline">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-4 text-xs text-gray-400">&copy; 2025 CareerLink. All Rights Reserved.</div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

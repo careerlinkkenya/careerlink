@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerLink | FAQs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { poppins: ['Poppins', 'sans-serif'] }, colors: { primary: '#16a34a' } } } }
+  </script>
+</head>
+<body class="font-poppins bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+
+  <!-- Navigation -->
+  <nav class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow-md">
+    <a href="home.html" class="text-xl font-bold text-primary">CareerLink</a>
+    <button onclick="logout()" class="text-sm text-red-500 hover:underline">Logout</button>
+  </nav>
+
+  <!-- FAQs -->
+  <main class="max-w-4xl mx-auto p-6 space-y-6 mt-8">
+    <h1 class="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h1>
+
+    <div data-aos="fade-up" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2">How do I apply for jobs?</h2>
+      <p>Register or log in, then go to "Browse Jobs", click a job, and proceed with the application process.</p>
+    </div>
+
+    <div data-aos="fade-up" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2">How much does it cost to apply?</h2>
+      <p>Featured job applications cost KSh 1,150. Interview bookings cost KSh 350. Direct placements cost KSh 950.</p>
+    </div>
+
+    <div data-aos="fade-up" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2">Can I edit my profile later?</h2>
+      <p>Yes. Visit the Profile page and update your details including email, phone, or password.</p>
+    </div>
+
+    <div data-aos="fade-up" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+      <h2 class="text-xl font-semibold mb-2">Do I get confirmation after payment?</h2>
+      <p>Yes. Once we verify your payment, a confirmation page and email will be sent automatically.</p>
+    </div>
+  </main>
+
+  <script>
+    AOS.init();
+    function logout() {
+      localStorage.clear();
+      window.location.href = 'login.html';
+    }
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

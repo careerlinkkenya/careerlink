@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerLink | Chat Support</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { poppins: ['Poppins', 'sans-serif'] }, colors: { primary: '#16a34a' } } } }
+  </script>
+</head>
+<body class="font-poppins bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+  <!-- Header -->
+  <nav class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow-md">
+    <a href="home.html" class="text-xl font-bold text-primary">CareerLink</a>
+  </nav>
+
+  <!-- Chat Container -->
+  <main class="max-w-xl mx-auto p-4 mt-6">
+    <h1 class="text-2xl font-bold mb-4 text-center">Ask Us Anything</h1>
+
+    <div id="chatBox" class="bg-white dark:bg-gray-800 p-4 h-[400px] overflow-y-auto rounded shadow space-y-2">
+      <div class="bg-green-100 text-green-800 p-2 rounded w-fit max-w-xs">Hi! How can I assist you today?</div>
+    </div>
+
+    <form id="chatForm" class="flex mt-4">
+      <input type="text" id="userInput" placeholder="Type your question..." required
+        class="flex-1 p-2 rounded-l border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900" />
+      <button type="submit" class="bg-primary text-white px-4 rounded-r">Send</button>
+    </form>
+  </main>
+
+  <script>
+    const chatBox = document.getElementById("chatBox");
+    const chatForm = document.getElementById("chatForm");
+    const userInput = document.getElementById("userInput");
+
+    const responses = {
+      "hello": "Hello there! How can I help you today?",
+      "how to apply": "Go to the jobs page, select a job, then click 'Apply' to proceed.",
+      "payment": "We accept Airtel Money at 0102960463. You’ll be asked to confirm your payment before proceeding.",
+      "how to edit profile": "Visit the Profile page to update your name, email, phone, or password.",
+      "bye": "Goodbye! Let us know if you have any more questions."
+    };
+
+    chatForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "bg-blue-100 text-blue-800 p-2 rounded w-fit ml-auto max-w-xs";
+      userMsg.textContent = message;
+      chatBox.appendChild(userMsg);
+
+      const lower = message.toLowerCase();
+      const reply = responses[lower] || "I'm not sure about that. Please check our FAQ page for more info.";
+
+      const botMsg = document.createElement("div");
+      botMsg.className = "bg-green-100 text-green-800 p-2 rounded w-fit max-w-xs";
+      botMsg.textContent = reply;
+      chatBox.appendChild(botMsg);
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+      userInput.value = "";
+    });
+
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

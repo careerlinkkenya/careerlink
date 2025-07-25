@@ -1,0 +1,104 @@
+<!-- how-it-works.html -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works | CareerLink</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/outline/index.min.js"></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white font-sans">
+
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-800 shadow fixed top-0 w-full z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="home.html" class="text-green-500 font-bold text-xl">CareerLink</a>
+      <div class="space-x-4 hidden md:block">
+        <a href="home.html" class="hover:text-green-500">Home</a>
+        <a href="jobs.html" class="hover:text-green-500">Jobs</a>
+        <a href="contact.html" class="hover:text-green-500">Contact</a>
+        <a href="how-it-works.html" class="text-green-500 font-bold">How it Works</a>
+        <a href="profile.html" class="hover:text-green-500">Profile</a>
+        <button onclick="logout()" class="text-red-500 hover:underline">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- How it Works Section -->
+  <section class="pt-24 px-4 max-w-5xl mx-auto" data-aos="fade-up">
+    <h1 class="text-3xl font-bold mb-4">How CareerLink Works</h1>
+    <p class="mb-6 text-lg">A simple process to land your next job or find the right candidate.</p>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow" data-aos="zoom-in">
+        <div class="text-green-500 mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-2">1. Sign Up</h3>
+        <p>Create an account to start applying or posting jobs on CareerLink.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="200">
+        <div class="text-green-500 mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 6h18M3 14h18M3 18h18" />
+          </svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-2">2. Browse or Post Jobs</h3>
+        <p>View available jobs or post premium job offers. Everything is mobile-optimized.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="400">
+        <div class="text-green-500 mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2l4-4" />
+          </svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-2">3. Apply & Pay</h3>
+        <p>Apply to jobs, book interviews, or get direct placements. Pay easily via Airtel Money.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="600">
+        <div class="text-green-500 mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-5-5H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v7a2 2 0 01-2 2h-3l-5 5z" />
+          </svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-2">4. Get Matched</h3>
+        <p>Our team reviews your application and matches you to suitable employers.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow" data-aos="zoom-in" data-aos-delay="800">
+        <div class="text-green-500 mb-4">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3-1.343 3-3S13.657 2 12 2 9 3.343 9 5s1.343 3 3 3zm0 0v4m0 0v8" />
+          </svg>
+        </div>
+        <h3 class="font-semibold text-xl mb-2">5. Start Work</h3>
+        <p>You’ll receive job details and start dates via email or phone once matched.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 py-6 mt-20 text-center text-sm text-gray-600 dark:text-gray-300">
+    &copy; 2025 CareerLink. All rights reserved. | <a href="terms.html" class="underline">Terms</a> | <a href="privacy-policy.html" class="underline">Privacy Policy</a>
+  </footer>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

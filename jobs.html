@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerLink | Browse Jobs</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.16/outline/index.min.js"></script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Header -->
+  <nav class="bg-gray-800 p-4 flex justify-between items-center">
+    <a href="home.html" class="text-2xl font-bold text-green-400">CareerLink</a>
+    <div id="nav-links" class="space-x-4 hidden md:block">
+      <a href="home.html" class="hover:text-green-400">Home</a>
+      <a href="saved-jobs.html" class="hover:text-green-400">Saved Jobs</a>
+      <a href="profile.html" class="hover:text-green-400">Profile</a>
+      <a href="#" onclick="logout()" class="hover:text-red-400">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Job Listings -->
+  <main class="p-4 max-w-6xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6 text-center">Available Jobs (25)</h1>
+    <div id="jobs-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Job Cards Will Be Injected Here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 p-4 text-center text-sm text-gray-400 mt-10">
+    &copy; 2025 CareerLink. <a href="terms.html" class="underline">Terms</a> | <a href="privacy-policy.html" class="underline">Privacy</a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBnrOBOoAas9DD_FiGJYLLz1RUqT_Clkvg",
+      authDomain: "careerlink-ebeed.firebaseapp.com",
+      projectId: "careerlink-ebeed",
+      storageBucket: "careerlink-ebeed.appspot.com",
+      messagingSenderId: "311863050655",
+      appId: "1:311863050655:web:a12a4cd36014e5e577bdaa"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    auth.onAuthStateChanged((user) => {
+      if (!user) window.location.href = "login.html";
+    });
+
+    function logout() {
+      auth.signOut().then(() => {
+        localStorage.clear();
+        window.location.href = "login.html";
+      });
+    }
+
+    // Sample Job Data (25 Jobs)
+    const jobs = [
+      { title: "Customer Service Assistant", location: "Nairobi", salary: "KSh 35,000" },
+      { title: "Front Desk Receptionist", location: "Nairobi", salary: "KSh 30,000" },
+      { title: "Data Entry Clerk", location: "Nairobi", salary: "KSh 28,000" },
+      { title: "Marketing Officer", location: "Nairobi", salary: "KSh 40,000" },
+      { title: "Accountant Assistant", location: "Nairobi", salary: "KSh 38,000" },
+      { title: "Sales Representative", location: "Nairobi", salary: "KSh 30,000" },
+      { title: "Warehouse Packer", location: "Nairobi", salary: "KSh 25,000" },
+      { title: "Call Center Agent", location: "Nairobi", salary: "KSh 32,000" },
+      { title: "Security Guard", location: "Nairobi", salary: "KSh 27,000" },
+      { title: "Office Cleaner", location: "Nairobi", salary: "KSh 20,000" },
+      { title: "Logistics Assistant", location: "Nairobi", salary: "KSh 36,000" },
+      { title: "Field Officer", location: "Nairobi", salary: "KSh 34,000" },
+      { title: "Personal Driver", location: "Nairobi", salary: "KSh 42,000" },
+      { title: "Procurement Clerk", location: "Nairobi", salary: "KSh 39,000" },
+      { title: "IT Support Technician", location: "Nairobi", salary: "KSh 45,000" },
+      { title: "Content Moderator", location: "Nairobi", salary: "KSh 33,000" },
+      { title: "Customer Retention Agent", location: "Nairobi", salary: "KSh 36,000" },
+      { title: "Kitchen Assistant", location: "Nairobi", salary: "KSh 24,000" },
+      { title: "Cashier", location: "Nairobi", salary: "KSh 31,000" },
+      { title: "Administrative Assistant", location: "Nairobi", salary: "KSh 38,000" },
+      { title: "Cleaning Supervisor", location: "Nairobi", salary: "KSh 29,000" },
+      { title: "Messenger", location: "Nairobi", salary: "KSh 21,000" },
+      { title: "Stock Controller", location: "Nairobi", salary: "KSh 37,000" },
+      { title: "Digital Marketing Assistant", location: "Nairobi", salary: "KSh 40,000" },
+      { title: "Retail Shop Attendant", location: "Nairobi", salary: "KSh 26,000" },
+    ];
+
+    // Render Jobs
+    const jobContainer = document.getElementById("jobs-container");
+    jobs.forEach((job, index) => {
+      const jobCard = document.createElement("div");
+      jobCard.className = "bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-xl transition" + (index % 2 === 0 ? " border-l-4 border-green-500" : " border-l-4 border-blue-500");
+      jobCard.setAttribute("data-aos", "fade-up");
+      jobCard.innerHTML = `
+        <h2 class="text-xl font-semibold text-green-300">${job.title}</h2>
+        <p class="text-sm text-gray-300 mt-1"><strong>Location:</strong> ${job.location}</p>
+        <p class="text-sm text-gray-300"><strong>Salary:</strong> ${job.salary}</p>
+        <div class="flex justify-between mt-4">
+          <a href="payment-notice.html" class="bg-green-600 px-4 py-2 rounded-md text-white hover:bg-green-700">Apply</a>
+          <button onclick="saveJob(${index})" class="bg-gray-700 px-4 py-2 rounded-md text-white hover:bg-gray-600">Save</button>
+        </div>
+      `;
+      jobContainer.appendChild(jobCard);
+    });
+
+    // Save Job to LocalStorage
+    function saveJob(index) {
+      const saved = JSON.parse(localStorage.getItem("savedJobs") || "[]");
+      saved.push(jobs[index]);
+      localStorage.setItem("savedJobs", JSON.stringify(saved));
+      alert("Job saved successfully!");
+    }
+
+    AOS.init();
+  </script>
+</body>
+</html>

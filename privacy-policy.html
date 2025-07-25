@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerLink | Privacy Policy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: { primary: '#16a34a' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+  <!-- Navigation -->
+  <nav class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow">
+    <a href="home.html" class="text-xl font-bold text-primary">CareerLink</a>
+    <button onclick="logout()" class="text-red-500 text-sm hover:underline">Logout</button>
+  </nav>
+
+  <!-- Privacy Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-6">
+    <h1 class="text-3xl font-bold text-center mb-6">Privacy Policy</h1>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">1. Information We Collect</h2>
+      <p>We collect personal information such as your name, email, phone number, and job history when you sign up or apply for jobs.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">2. How We Use Your Information</h2>
+      <ul class="list-disc pl-6">
+        <li>To match you with jobs and employers</li>
+        <li>To communicate about job applications</li>
+        <li>To improve user experience on the platform</li>
+        <li>To send payment or application updates</li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">3. Data Sharing</h2>
+      <p>We do not sell your data. Information may only be shared with verified employers related to job opportunities you've applied to.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">4. Data Security</h2>
+      <p>All user data is stored securely using encrypted Firebase Authentication and Firestore databases.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">5. Your Rights</h2>
+      <p>You may update your data or delete your account anytime from your profile page.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">6. Updates</h2>
+      <p>This privacy policy may be updated. We’ll notify users of significant changes via email or system message.</p>
+    </section>
+
+    <p class="text-center mt-8 text-sm">© 2025 CareerLink. Your privacy matters to us.</p>
+  </main>
+
+  <script>
+    if (!localStorage.getItem("loggedIn")) window.location.href = "login.html";
+    function logout() {
+      localStorage.clear();
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

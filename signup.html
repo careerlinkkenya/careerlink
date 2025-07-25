@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerLink | Sign Up</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white">
+
+  <!-- Signup Form -->
+  <section class="flex items-center justify-center min-h-screen px-4">
+    <div class="max-w-md w-full space-y-8 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-md" data-aos="zoom-in">
+      <h2 class="text-3xl font-bold text-center">Create Your Account</h2>
+      <form id="signupForm" class="space-y-5">
+        <div>
+          <label class="block mb-1">Full Name</label>
+          <input type="text" id="name" class="w-full p-3 rounded-lg border dark:bg-gray-700 dark:border-gray-600" required />
+        </div>
+        <div>
+          <label class="block mb-1">Email Address</label>
+          <input type="email" id="email" class="w-full p-3 rounded-lg border dark:bg-gray-700 dark:border-gray-600" required />
+        </div>
+        <div>
+          <label class="block mb-1">Phone Number</label>
+          <input type="tel" id="phone" class="w-full p-3 rounded-lg border dark:bg-gray-700 dark:border-gray-600" required />
+        </div>
+        <div>
+          <label class="block mb-1">Password</label>
+          <input type="password" id="password" class="w-full p-3 rounded-lg border dark:bg-gray-700 dark:border-gray-600" required minlength="6" />
+        </div>
+        <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold">Sign Up</button>
+      </form>
+      <p class="text-center text-sm mt-4">Already have an account? <a href="login.html" class="text-green-600 hover:underline">Login</a></p>
+    </div>
+  </section>
+
+  <!-- Firebase -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBnrOBOoAas9DD_FiGJYLLz1RUqT_Clkvg",
+      authDomain: "careerlink-ebeed.firebaseapp.com",
+      projectId: "careerlink-ebeed",
+      storageBucket: "careerlink-ebeed.appspot.com",
+      messagingSenderId: "311863050655",
+      appId: "1:311863050655:web:a12a4cd36014e5e577bdaa"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    document.getElementById("signupForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        await userCredential.user.updateProfile({ displayName: name });
+        localStorage.setItem("userPhone", phone);
+        alert("Signup successful! Redirecting...");
+        window.location.href = "home.html";
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+  </script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>feather.replace();</script>
+</body>
+</html>

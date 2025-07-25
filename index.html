@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerLink | Welcome</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans">
+
+  <!-- Header -->
+  <header class="p-4 flex justify-between items-center bg-green-600 text-white">
+    <h1 class="text-xl font-bold"><a href="index.html">CareerLink</a></h1>
+    <div class="space-x-4">
+      <a href="login.html" class="hover:underline">Login</a>
+      <a href="signup.html" class="bg-white text-green-600 px-3 py-1 rounded hover:bg-gray-100">Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6 bg-gradient-to-b from-green-100 to-green-200 dark:from-green-700 dark:to-green-900" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Find Jobs That Match Your Passion</h2>
+    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6">CareerLink connects job seekers with top opportunities. Start your journey today.</p>
+    <a href="signup.html" class="bg-green-600 text-white px-6 py-3 rounded-full text-lg hover:bg-green-700">Get Started</a>
+  </section>
+
+  <!-- Features -->
+  <section class="grid md:grid-cols-3 gap-8 p-10 max-w-6xl mx-auto" data-aos="fade-up">
+    <div class="bg-white dark:bg-gray-800 shadow rounded p-6 text-center">
+      <svg class="w-10 h-10 mx-auto text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M12 4.354a4.012 4.012 0 00-4.167 3.666C7.616 9.153 6 10.999 6 13.25c0 3.143 2.29 5.75 6 5.75s6-2.607 6-5.75c0-2.25-1.616-4.097-1.833-5.23A4.012 4.012 0 0012 4.354z" />
+      </svg>
+      <h3 class="font-semibold text-lg mb-2">Personalized Jobs</h3>
+      <p>We match you to jobs based on your profile and preferences.</p>
+    </div>
+    <div class="bg-white dark:bg-gray-800 shadow rounded p-6 text-center">
+      <svg class="w-10 h-10 mx-auto text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M9 17v-2a2 2 0 012-2h2a2 2 0 012 2v2m1 4H8a2 2 0 01-2-2V7a2 2 0 012-2h2m4 0h2a2 2 0 012 2v12a2 2 0 01-2 2z" />
+      </svg>
+      <h3 class="font-semibold text-lg mb-2">Verified Listings</h3>
+      <p>All jobs are verified to ensure authenticity and quality.</p>
+    </div>
+    <div class="bg-white dark:bg-gray-800 shadow rounded p-6 text-center">
+      <svg class="w-10 h-10 mx-auto text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M3 10h2l1-2h12l1 2h2M3 16h18v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2z" />
+      </svg>
+      <h3 class="font-semibold text-lg mb-2">Fast Applications</h3>
+      <p>Apply for jobs quickly and track your application in real-time.</p>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center py-16 bg-green-600 text-white" data-aos="zoom-in">
+    <h2 class="text-2xl font-bold mb-4">Ready to Kickstart Your Career?</h2>
+    <a href="signup.html" class="bg-white text-green-600 px-6 py-3 rounded-full hover:bg-gray-100">Sign Up Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="p-6 bg-gray-900 text-white text-sm text-center">
+    <p>&copy; 2025 CareerLink. All rights reserved.</p>
+    <div class="mt-2 space-x-4">
+      <a href="terms.html" class="hover:underline">Terms</a>
+      <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

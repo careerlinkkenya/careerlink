@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareerLink | Terms and Conditions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: { primary: '#16a34a' }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+  <!-- Nav -->
+  <nav class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow">
+    <a href="home.html" class="text-xl font-bold text-primary">CareerLink</a>
+    <button onclick="logout()" class="text-red-500 text-sm hover:underline">Logout</button>
+  </nav>
+
+  <!-- Terms Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-6">
+    <h1 class="text-3xl font-bold text-center mb-6">Terms and Conditions</h1>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">1. Acceptance of Terms</h2>
+      <p>By accessing and using CareerLink, you agree to abide by these terms. If you do not agree, do not use the platform.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">2. User Responsibilities</h2>
+      <p>You are responsible for maintaining the confidentiality of your login credentials and any activity that occurs under your account.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">3. Job Applications and Payments</h2>
+      <ul class="list-disc pl-6">
+        <li>Featured job application: KSh 1,150</li>
+        <li>Interview booking: KSh 350</li>
+        <li>Direct placement: KSh 950</li>
+        <li>Job post (employer): KSh 550</li>
+      </ul>
+      <p>All payments must be confirmed for processing. No refunds once applications are submitted unless a technical error occurs on our side.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">4. Use of Information</h2>
+      <p>CareerLink will never share your personal data without consent. See our <a href="privacy-policy.html" class="text-primary underline">Privacy Policy</a> for more.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-xl font-semibold">5. Modifications</h2>
+      <p>We reserve the right to update these terms at any time. You will be notified of major changes via email or in-app alerts.</p>
+    </section>
+
+    <p class="text-center mt-8 text-sm">© 2025 CareerLink. All Rights Reserved.</p>
+  </main>
+
+  <script>
+    if (!localStorage.getItem("loggedIn")) window.location.href = "login.html";
+    function logout() {
+      localStorage.clear();
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
